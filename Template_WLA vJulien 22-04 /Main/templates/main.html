@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="{{ url_for('static', filename='js/jquery-1.12.4.js') }}" > </script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css'>
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+    <link href="https://fonts.googleapis.com/css?family=Caveat:400,700" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+
+
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+    <script src="{{url_for('static', filename='js/d3pie.min.js')}}"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+
+    <!-- Titre de page + Favicon -->
+
+    <title> White Leaf </title>
+    <link rel=“shortcut icon” href=“static/css/images/Favicon.png” type=“image/x-icon” />
+
+
+</head>
+
+<body>
+
+   <header>
+
+        <div class="header">
+            <nav class="fixed-nav-bar">
+                <center>
+                <ul class="navbar-new">
+
+                    <div id="chg-btn-gauche">
+                      <button type="button" id="chgbutton-navbar" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                        Plus d'informations
+                      </button>
+                    </div>
+                    <li>
+                        <img id="logo-nav" src="static/css/images/LS Blanc.png">
+                    </li>
+                    <li role="presentation" id="name-nav">
+                        <p href="#"> Leadersante </p>
+                    </li>
+
+                    <li role="presentation" id="nav-droite-logout">
+                      <a type="button" class="btn btn-danger btn-lg" href="/logout"> Logout
+                      </a>
+
+                    </li>
+
+
+                </ul>
+                </center>
+            </nav>
+        </div>
+
+    </header>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="chg-titre-modal">Notice d'utilisation</h4>
+      </div>
+
+        <div class="modal-body"><img id="img-notice" src="static/css/images/Test Notice.jpg"></div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+   <!-- AFTER MODAL -->
+
+
+  <div class="container">
+	  <div class="col-lg-12">
+		  <div id="exTab2" class="row">
+		  <ul  class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#menu4">Accueil</a></li>
+
+			<li ><a data-toggle="tab"  onclick="updateData_cat('CA')"   href="#menu1">Catégories</a></li>
+
+			<li><a data-toggle="tab"  onClick="updateData_TVA('MB')" href="#menu2" >TVA</a></li>
+			<li><a data-toggle="tab"  onClick="updateData_Univ('MB')" href="#menu3">Univers</a></li>
+		  </ul>
+
+            <div class="tab-content">
+
+                <div id="menu4" class="tab-pane fade in active">
+
+                    <!-- JUMBOTRON -->
+                        <div class="row ">
+                        <div class="jumbotron">
+                          <div id="chgjumbotron">
+                              <center>
+                              <p>Bienvenue sur l'outil d'aide au pilotage de votre pharmacie</p>
+
+
+                              <button type="button" id="chgbutton" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                                Plus d'information
+                              </button>  </center>
+
+                          <center><div class="col-lg-6 col-lg-offset-3">
+
+                              <hr>
+
+
+                          </div></center>
+
+                          </div>
+                        </div>
+                        </div>
+                        <div id="legend-row" class="row">
+                       <center> <div class="col-lg-6 col-lg-offset-3">
+                                   <img id="legende-radar" src="static/css/images/Legende-Radar1.jpg"/>
+                              <img id="legende-radar" src="static/css/images/Legende-Radar2.jpg"/>
+                                </div></center>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-lg-6">
+                              <center>
+                              <h3>Performances par Univers</h3><hr>
+
+                                <div class="radarChart-1 "></div>
+
+                              </center>
+                          </div>
+
+                          <div class="col-lg-6">
+                               <center>
+                               <h3>Performances par % TVA</h3><hr>
+                                 <div class="radarChart-2"></div>
+                                 </center>
+                          </div>
+                        </div>
+
+                </div>
+
+                <div id="menu1" class="tab-pane">
+                    <center>   <h3> Vos résultats par catégories de produits </h3>
+            <button type="button" class="btn btn-labeled btn-warning" onClick="updateData_cat('MB')">
+                <span class="btn-label"><i class="glyphicon glyphicon-circle-arrow-down"></i></span>Marge Brute (€) </button>
+            <button type="button" class="btn btn-labeled btn-primary" onClick="updateData_cat('CA')">
+                <span class="btn-label"><i class="glyphicon glyphicon-circle-arrow-down"></i></span>Chiffre d'affaires (€)</button>
+                </center>
+                    <hr>
+                   <div class="row">
+	                     <div class="col-lg-6">
+                            <span class="pull-right"><div id="Cat" ></div></span>
+                                <script src="{{url_for('static', filename='js/Catégories.js')}}"></script>
+
+                       </div>
+
+                        <div class="col-lg-6">
+                            <table id="CategorieTable" class="display" width="100%"></table>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                            <div id="pareto" class="char-pareto" ></div>
+                             </div>
+                         </div>
+                        </div>
+                </div>
+
+                <div id="menu2" class="tab-pane">
+                    <center>   <h3> Vos résultats par catégories de TVA </h3>
+            <button type="button" class="btn btn-labeled btn-warning" onClick="updateData_TVA('MB')">
+                <span class="btn-label"><i class="glyphicon glyphicon-circle-arrow-down"></i></span>Marge Brute (€) </button>
+            <button type="button" class="btn btn-labeled btn-primary" onClick="updateData_TVA('CA')">
+                <span class="btn-label"><i class="glyphicon glyphicon-circle-arrow-down"></i></span>Chiffre d'affaires (€)</button>
+                </center>
+                    <hr>
+                   <div class="row">
+	                     <div class="col-lg-6">
+                             <span class="pull-right"><div class="pie" id="TVA"></div></span>
+                    <script src="{{url_for('static', filename='js/TVA.js')}}"></script>
+                      </div>
+                        <div class="col-lg-6">
+                            <table id="TVATable" class="display" width="100%"></table>
+                        </div>
+                   </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                            <div id="paretoTVA" class="char-pareto" ></div>
+                             </div>
+                         </div>
+                </div>
+                <div id="menu3" class="tab-pane">
+                                 <center>   <h3> Vos résultats par Univers </h3>
+            <button type="button" class="btn btn-labeled btn-warning" onClick="updateData_Univ('MB')">
+                <span class="btn-label"><i class="glyphicon glyphicon-circle-arrow-down"></i></span>Marge Brute (€) </button>
+            <button type="button" class="btn btn-labeled btn-primary" onClick="updateData_Univ('CA')">
+                <span class="btn-label"><i class="glyphicon glyphicon-circle-arrow-down"></i></span>Chiffre d'affaires (€)</button>
+                </center>
+                    <hr>
+                   <div class="row">
+	                     <div class="col-lg-6">
+                             <span class="pull-right"><div class="pie" id="Univ"></div></span>
+                    <script src="{{url_for('static', filename='js/Univ.js')}}"></script>
+                      </div>
+                        <div class="col-lg-6">
+                            <table id="UNIVTable" class="display" width="100%"></table>
+                        </div>
+                   </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                            <div id="paretoUNIV" class="char-pareto" ></div>
+                             </div>
+                         </div>
+                </div>
+
+
+
+            </div>
+          </div>
+
+          </div>
+  </div>
+
+
+
+
+
+</body>
+
+
+
+
+
+
+<!--RADAR CHART -->
+<script src="{{url_for('static', filename='js/Radarchart-template.js')}}"></script>
+<script src="{{url_for('static', filename='js/Radarchart-1.js')}}"></script>
+<script src="{{url_for('static', filename='js/Radarchart-2.js')}}"></script>
+
+
+<!--<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js'></script>-->
+<script src="{{url_for('static', filename='js/main.js')}}"></script>
+<script src="{{url_for('static', filename='js/TVA.js')}}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.7.2/d3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="{{ url_for('static', filename='css/bootstrap-theme.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+    <script src="{{ url_for('static', filename='js/jquery.dataTables.min.js') }}" > </script>
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+    <link href="{{ url_for('static', filename='css/jquery.dataTables.css') }}" rel="stylesheet">
+<script src="{{ url_for('static', filename='js/datatable_categories.js') }}"> </script>
+
+</html>

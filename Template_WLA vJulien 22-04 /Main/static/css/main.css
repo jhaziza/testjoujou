@@ -1,0 +1,405 @@
+
+body {
+
+    background-color: #FFFFA;
+    color:black;
+    font-family: 'roboto';
+
+}
+
+.container {
+    padding-top: 50px;
+	width: 95%;
+	margin: 0 auto;
+	position: relative;
+}
+
+h3 {
+    font-family: 'roboto';
+    font-weight: 300;
+    font-size: 25x
+}
+
+                            /* Nav Bar (BEN) */
+
+  /* disable hover on navbar */
+
+.header a:hover {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+}
+.header li:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+
+
+
+.fixed-nav-bar {
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(33, 33, 33, 0.89);
+    border-top, border-bottom: 1.5px solid white;
+}
+
+.navbar-new a {
+     font-size: 17.5px;
+}
+.navbar-new p {
+     font-size: 21.8px;
+     font-family: "roboto";
+     letter-spacing: 0.1em;
+     pointer-events: none;
+}
+
+#name-nav {
+    font-family:roboto;
+    font-weight: 200;
+    font-size: 20x
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-top: 3px;
+}
+
+#logo-nav{
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+
+#nav-droite-logout {
+    float:right;
+    font-family:roboto;
+    font-weight: 400;
+    color:red;
+    margin-right: 10px;
+    margin-top: 2px;
+}
+
+.btn-danger {
+    text-transform: none;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+
+
+/* Modal */
+
+.modal {
+    background-color: rgba(0,0,0,0);
+}
+
+.z-depth-4, .modal {
+    box-shadow: rgba(0, 0, 0, 0) 0px 0 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+}
+
+.modal-content {
+    border: 1.5px solid black;
+
+}
+
+.modal-header .close {
+    margin-top: 0px;
+    font-size: 45px;
+
+}
+
+.modal-title {
+    padding-top: 10px;
+}
+
+.modal-header {
+    padding: 16px;
+    color: white;
+    background: #D7007F;
+    border-radius: 4px;m
+
+}
+
+#img-notice {
+    max-width: 100%
+}
+/* RADAR */
+
+#legende-radar{
+    max-height: 50px;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+#legend-row{
+    max-height: 2px;
+    margin-bottom: -25px;
+    margin-top: -25px;
+}
+
+/* Tabs */
+
+.nav-tabs>li {
+    width: 25%;
+    height: px;
+    text-align: center;
+    outline: none;
+    border-radius: 4px;
+}
+.nav-tabs>li>a {
+    margin-right: 0px;
+
+}
+
+.nav-tabs {
+    border-bottom: none;
+
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    border: 0;
+
+}
+.nav>li>a {
+    padding-top: 13px;
+    padding-bottom: 13px;
+    font-size: 25px;
+}
+.nav-tabs { border-bottom: 2px solid #DDD; }
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover { border-width: 0; }
+.nav-tabs > li > a { border: none; color: #666; }
+.nav-tabs > li.active > a, .nav-tabs > li > a:hover { border: none; color: #0079c1 !important; background: transparent; }
+.nav-tabs > li > a::after { content: ""; background: #0079c1; height: 2px; position: absolute; width: 100%; left: 0px; bottom: -1px; transition: all 250ms ease 0s; transform: scale(0); }
+.nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { transform: scale(1); }
+.tab-nav > li > a::after { background: #21527d none repeat scroll 0% 0%; color: #fff; }
+.tab-pane { padding: 15px 0; }
+.tab-content{padding:20px}
+.card {background: #FFF none repeat scroll 0% 0%; box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); margin-bottom: 30px; }
+
+
+/* Vertical divider */
+
+.row.vdivide [class*='col-']:not(:last-child):after {
+  background: #e0e0e0;
+  width: 1px;
+  content: "";
+  display:block;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  right: 0;
+  min-height: 70px;
+}
+
+/* RESTE JUJU */
+
+
+hr {
+color:black;
+}
+
+
+
+
+.header-login-signup{
+	background-color:#292c2f;
+	box-shadow:0 1px 1px #ccc;
+	padding: 20px 40px;
+	height: 80px;
+	color: #dbd7d7;
+	box-sizing: border-box;
+}
+
+.header-login-signup .header-limiter {
+	max-width: 1200px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+/* Logo */
+
+.header-login-signup .header-limiter h1{
+	float: left;
+	font: normal 28px Cookie, Arial, Helvetica, sans-serif;
+	line-height: 40px;
+	margin: 0;
+}
+
+.header-login-signup .header-limiter h1 span {
+	color: #5383d3;
+}
+
+
+
+/* Making the header responsive */
+
+@media all and (max-width: 600px) {
+
+	.header-login-signup {
+		padding: 25px;
+		height: 85px;
+	}
+
+	.header-login-signup .header-limiter h1 {
+		float: none;
+		margin: -8px 0 2px;
+		text-align: center;
+		font-size: 24px;
+		line-height: 1;
+	}
+
+	.header-login-signup .header-limiter nav {
+		margin: 0;
+		float: none;
+	}
+
+	.header-login-signup .header-limiter nav li a {
+		font-size: 13px;
+	}
+
+	.header-login-signup .header-limiter ul {
+		display: none;
+	}
+
+}
+
+
+
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* NAVBAR CENTER */
+
+
+
+@media (min-width: 768px) {
+
+    nav ul li {
+        float: none;
+        padding: 0;
+        display: inline-block;
+    }
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+    }
+
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+
+    #logo-nav{
+        margin-left: 10px;
+        padding-top: 0;
+        padding-bottom: 5px;
+        margin-right: 3px;
+     }
+
+    nav ul a {
+        padding: 0;
+    }
+
+    #nav-droite-logout {
+        margin-right: 20px;
+        margin-left: -40px;
+
+    }
+    #chg-btn-gauche {
+        float:left;
+        text-align: none;
+        margin-top: 5px;
+        margin-right: -200px;
+        margin-left: 15px;
+
+    }
+
+    #chgbutton {
+        display:none;
+    }
+
+    #chgbutton-navbar {
+        margin-bottom:7px;
+        font-size: 15px;
+        text-transform:none;
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        martin-bottom: 5px;
+}
+}
+
+
+@media (max-width: 800px){
+#chgbutton-navbar {
+    display:none;
+}
+}
+
+
+@media (min-width: 1200px) {
+  .container {
+    width: 95%px;
+  }
+
+}
+
+/* Chart */
+
+.char-pareto{
+width:100%;
+margin: 20 auto;
+}
+
+.highcharts-container {
+width:100%;
+}
+
+/*JUMBOTRON*/
+
+.jumbotron {
+    background-color: white;
+    margin-bottom: 0;
+    padding-top:30px;
+    padding-bottom:10px;
+}
+
+#chgjumbotron {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+
+
+.jumbotron p {
+    font-family:roboto;
+    font-weight: 200;
+    font-size: 35px;
+}
+
+
+#chgbutton{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-transform:none;
+
+
+}
+
+/* BUTTONS */
+
+.btn-label {position: relative;left: -12px;padding: 6px 12px;border-radius: 3px 0 0 3px;}
+.btn-labeled {padding-top: 0;padding-bottom: 0;}
+.btn { margin-bottom:10px; }
